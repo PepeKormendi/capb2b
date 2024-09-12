@@ -1,3 +1,13 @@
-service say {
-    function hello (to:String) returns String;
+using { cuid, managed } from '@sap/cds/common';
+
+service bookshop {
+    entity Books : cuid, managed {
+        title: String;
+    }
+
+    entity Authors : cuid {
+        name:String
+    }    
+    
+
 }
