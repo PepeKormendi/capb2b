@@ -8,6 +8,6 @@ service bookshop {
     entity Authors : cuid {
         name:String
     }    
-    
+
 
 }
