@@ -9,7 +9,7 @@ GET http://localhost:4004/odata/v4/{{serviceName}}/Books
 POST http://localhost:4004/odata/v4/{{serviceName}}/Books
 Content-Type: application/json
 
-{"title": "BANANAS Long And Thanks For All The Fish"}
+{"title": "BlueBird"}
 
 ### 
 # @name QueryBooksAgain
