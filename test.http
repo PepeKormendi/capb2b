@@ -9,7 +9,7 @@ GET http://localhost:4004/odata/v4/{{serviceName}}/Books
 POST http://localhost:4004/odata/v4/{{serviceName}}/Books
 Content-Type: application/json
 
-{"title": "BlueBird"}
+{"title": "Tod Im Venedigt", "author_ID": "0d2f27fe-c6a7-4c4c-86bf-7e4a042b13f7" }
 
 ### 
 # @name QueryBooksAgain
@@ -39,3 +39,56 @@ DELETE http://localhost:4004/odata/v4/bookshop/Books({{book_ID}})
 ### 
 # @name DeleteSpecificBookEntity2
 DELETE http://localhost:4004/odata/v4/bookshop/Books(8f05c9e4-142a-4021-9358-26ceab0631d3)
+
+### 
+# @name CreateAuthor
+POST http://localhost:4004/odata/v4/{{serviceName}}/Authors
+Content-Type: application/json
+
+{"name": "Thomas Mann", "countryOfBirth_code": "DE" }
+
+@server = http://localhost:4004
+@auth = Authorization: Basic alice:
+
+
+### Authors
+# @name Authors_GET
+GET {{server}}/odata/v4/bookshop/Authors
+{{auth}}
+
+
+### Authors
+# @name Authors_POST
+POST {{server}}/odata/v4/bookshop/Authors
+Content-Type: application/json
+{{auth}}
+
+{
+
+  "name": "Péter Körmendi",
+  "countryOfBirth": {
+    "code": "HU"
+  }
+}
+
+
+### Authors
+# @name Authors_PATCH
+PATCH {{server}}/odata/v4/bookshop/Authors/84073486-b99a-4480-bc85-9fd375935c47
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "84073486-b99a-4480-bc85-9fd375935c47",
+  "name": "name-8407348",
+  "countryOfBirth": {
+    "code": "LK"
+  }
+}
+
+
+### Authors
+# @name Authors_DELETE
+DELETE {{server}}/odata/v4/bookshop/Authors/f031914b-876b-4952-8bcb-0ead23e1f96d
+Content-Type: application/json
+{{auth}}

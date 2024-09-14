@@ -14,6 +14,7 @@ service bookshop {
     entity Authors : cuid {
         name           : String;
         countryOfBirth : Country;
+        books: Association to many Books on books.author = $self;
     }
 
 }
