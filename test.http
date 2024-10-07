@@ -92,3 +92,5 @@ Content-Type: application/json
 DELETE {{server}}/odata/v4/bookshop/Authors/f031914b-876b-4952-8bcb-0ead23e1f96d
 Content-Type: application/json
 {{auth}}
+
+
