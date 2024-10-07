@@ -7,7 +7,12 @@ ARG CAPVER="latest"
 # Install some generally useful tools
 RUN apt-get update \
     && apt-get -y install --no-install-recommends \
-    curl git sqlite3 entr source-highlight
+    curl git sqlite3 entr source-highlight \
+    && curl -Lo /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 \
+    && chmod +x /usr/local/bin/yq \
+    && apt-get -y install bat \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 # Install SAP CAP SDK globally
 USER node
